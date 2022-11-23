@@ -1,0 +1,28 @@
+{
+  "name": "losovani",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tadeas-poliak/losovani.git"
+  },
+  "author": "tadeas poliak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tadeas-poliak/losovani/issues"
+  },
+  "homepage": "https://github.com/tadeas-poliak/losovani#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20",
+    "path": "^0.12.7",
+    "simple-json-db": "^2.0.0"
+  }
+}

@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap'); /* font-family: 'Quicksand', sans-serif; */
+
+body
+{
+    font-family: 'Quicksand', sans-serif;
+}
+
+header {
+    background-color: rgb(20, 82, 61);
+    /*Box shadow*/
+    -webkit-box-shadow: 0px 10px 14px -10px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 10px 14px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 10px 14px -10px rgba(0, 0, 0, 0.75);
+}
+header h1
+{
+    font-weight: 300;
+}
+header a, header h1
+{
+    text-decoration: none;
+    color: white;
+}

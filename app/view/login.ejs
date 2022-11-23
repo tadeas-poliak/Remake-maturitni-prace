@@ -1,0 +1,31 @@
+<%- include("common/head.ejs") -%>
+    <script src="/scripts/script.js"></script>
+    
+    <div class="row col-12 d-flex justify-content-center form-container">
+        <div id="log">
+
+        </div>
+        <div class="m-3">
+            <div class="col-12 d-flex justify-content-center">
+                <p>Name</p>
+            </div>
+            <div class="col-12 d-flex justify-content-center">
+                <input id="name" type="text">
+            </div>
+        </div>
+        <div class="m-3">
+            <div class="col-12 d-flex justify-content-center">
+                <p>Password</p>
+            </div>
+            <div class="col-12 d-flex justify-content-center">
+                <input id="password" type="password">
+            </div>
+        </div>
+        <div class="m-3">
+            <div class="col-12 d-flex justify-content-center">
+                <input type="button" onclick="send_form_data(this,'/user/login')" value="Submit">
+            </div>
+        </div>
+    </div>
+
+    <%- include("common/foot.ejs") -%>

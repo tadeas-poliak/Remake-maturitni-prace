@@ -1,0 +1,19 @@
+Remake Maturitni Prace
+-remake of maturitni prace which was made within 4 hours
+-node app
+-App consists
+    -user registration and log in
+    -user can
+        -post problems
+        -answer to problems
+        -can vote or downvote a problem
+    -main page with all posted problems
+
+-Requirements
+    -Node JS installed
+    -in root of repostiry run command "npm install" for installation required packages
+
+-Starting up the app
+    -after installation run command "npm run dev"
+    -by default app should run on http://localhost:3333/ to change port or address make so in server.js
+
