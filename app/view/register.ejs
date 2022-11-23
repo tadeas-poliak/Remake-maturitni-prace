@@ -1,11 +1,12 @@
 <%- include("common/head.ejs") -%>
-<div class="row col-12 d-flex justify-content-center form-container">
+<div class="row col-12 d-flex justify-content-center form-container mt-5">
+    <div id="log"></div>
     <div class="m-3">
         <div class="col-12 d-flex justify-content-center">
             <p>Name</p>
         </div>
         <div class="col-12 d-flex justify-content-center">
-            <input id="name" type="text">
+            <input class="name" type="text">
         </div>
     </div>
     <div class="m-3">
@@ -13,7 +14,15 @@
             <p>Password</p>
         </div>
         <div class="col-12 d-flex justify-content-center">
-            <input id="password" type="password">
+            <input class="password" type="password">
+        </div>
+    </div>
+    <div class="m-3">
+        <div class="col-12 d-flex justify-content-center">
+            <p>Confirm Password</p>
+        </div>
+        <div class="col-12 d-flex justify-content-center">
+            <input class="confirm-password" type="password">
         </div>
     </div>
     <div class="m-3">
@@ -22,4 +31,5 @@
         </div>
     </div>
 </div>
+<script src="/scripts/script.js"></script>
 <%- include("common/foot.ejs") -%>

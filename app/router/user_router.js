@@ -10,6 +10,7 @@ user_router.get("/registerPage",user_controller.register_page)
 
 //actions
 user_router.post("/login",user_controller.login)
+user_router.post("/register",user_controller.register)
 
 
 module.exports = user_router;

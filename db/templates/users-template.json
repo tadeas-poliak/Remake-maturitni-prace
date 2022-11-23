@@ -1,0 +1,8 @@
+{
+    "1":
+    {
+        "name":"Martin",
+        "password":"hashed-password"
+    },
+    "next_id":2
+}
