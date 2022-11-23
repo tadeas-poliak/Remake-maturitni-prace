@@ -33,7 +33,7 @@ async function send_form_data(button,path)
                     continue
                 if(passwords[p1].value != passwords[p2].value)
                 {
-                    log.innerHTML = "Passwords need to match."
+                    log_message("Passwords need to match.")
                     return false;
                 }
             }
@@ -41,7 +41,7 @@ async function send_form_data(button,path)
         let min_pass_lenght = 5;
         if(passwords[0].value.length < min_pass_lenght)
         {        
-            log.innerHTML = "Passwords need to have atleast "+min_pass_lenght+" characters."
+            log_message("Passwords need to have atleast "+min_pass_lenght+" characters.")
             return false;
         }
     }
@@ -60,11 +60,22 @@ async function send_form_data(button,path)
     }
     )).json(); 
     answer = answer.answer
-    console.log(answer)   
-    //Printing answer into log
+
+    //Printing from fetch answer into log
     if(answer == true)
-        log.innerHTML = "Everything went right."
+        log_message("Everything went right.")
     if(answer == false)
-        log.innerHTML = "Something went wrong."
+        log_message("User name already exists in databse. Please use different.")
     return answer;
+}
+
+
+//custom alert
+function log_message(messege,duration=3000)
+{
+    let log_element = document.querySelector("div#log");
+    log_element.classList.remove("hidden")
+    log_element.innerHTML = messege;
+    log_element.style.position.left = "50%+"+log_element.offsetWidth/2+"px" 
+    setTimeout(()=>{log_element.classList.add("hidden")}, duration)
 }
