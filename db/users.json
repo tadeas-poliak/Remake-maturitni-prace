@@ -1,11 +1,7 @@
 {
     "1": {
-        "name": "test",
-        "password": "ahojahoj"
+        "name": "test3",
+        "password": "hesloheslo"
     },
-    "2": {
-        "name": "test2",
-        "password": "ahojahoj"
-    },
-    "next_id": 3
+    "next_id": 2
 }

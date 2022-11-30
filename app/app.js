@@ -1,6 +1,8 @@
 const path = require("path");
 const express = require("express"); 
 var bodyParser = require('body-parser');
+const session = require("express-session")
+const cookieParser = require("cookie-parser")
 const app = express();
 
 //----ROUTERS----
@@ -20,6 +22,15 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({limit: '50mb', extended: false, parameterLimit: 1000000}));
 app.use(bodyParser.json());
 app.use(express.json());
+//sesison
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+  secret: 'keyboard cat',
+  resave: true  ,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}))
+app.use(cookieParser())
 
 //directory to static files
 app.use(express.static(path.join(__dirname ,'www')))

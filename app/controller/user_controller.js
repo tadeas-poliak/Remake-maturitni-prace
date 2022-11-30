@@ -12,11 +12,32 @@ exports.register_page = (req,res) =>
     res.render("register")
 }
 
-
+//middleware
+exports.is_logged_in = (req,res,next) =>
+{
+    let name = Object.values(req.cookies)[0]    
+    let password = Object.values(req.cookies)[1]    
+    if(name != undefined && password != undefined)
+        //Checking if user is logged in
+        if(user_model.is_user_in_database(name,password) == true)
+            next();//if so we pass to next controller
+    
+    res.redirect("/user/loginPage")
+}
 //actions
 exports.login = (req,res) =>
 {
-    res.send({answer:true})
+    
+    let answer = user_model.is_user_in_database(req.body.name,req.body.password)
+    req.session.test = "test"
+    if(answer)
+    {
+        //5 minutes expiration
+        let expiration = 5*60*1000
+        res.cookie("name",req.body.name,{maxAge:5000})
+        res.cookie("password",req.body.password,{maxAge:5000})
+    }
+    res.send({answer})
 }
 
 exports.register = (req,res) =>

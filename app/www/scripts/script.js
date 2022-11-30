@@ -1,3 +1,4 @@
+//sending form data (login or register)
 async function send_form_data(button,path)
 {
     //get container of form with data to be send (container must contain class name "form-container")
@@ -8,20 +9,22 @@ async function send_form_data(button,path)
     let inputs = Array.from(container.querySelectorAll("input"));
     let passwords = []
     let name;
-    //excluding buttons and getting passwords
     for(let i in inputs)
     {
+        //excluding buttons
         if(inputs[i].getAttribute("type") == "button")
         {
             inputs.splice(inputs.indexOf(inputs[i]) ,1);
             continue;
         }
+        //getting passwords
         if(inputs[i].getAttribute("type") == "password")
             passwords.push(inputs[i])
+        //and names
         if(Array.from(inputs[i].classList).includes("name")==true)
             name = inputs[i];
     }
-    console.log(name)
+    
     //If there are more then 1 password inputs we need to check if are correct
     if(passwords.length > 1)
     {
@@ -65,7 +68,7 @@ async function send_form_data(button,path)
     if(answer == true)
         log_message("Everything went right.")
     if(answer == false)
-        log_message("User name already exists in databse. Please use different.")
+        log_message("Incorrect input.")
     return answer;
 }
 
