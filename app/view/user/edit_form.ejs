@@ -9,7 +9,7 @@
             <p>Title</p>
         </div>
         <div class="col-12 d-flex justify-content-center">
-            <input id="title" type="text">
+            <input id="title" type="text" value="<%= data.problem.title %>">
         </div>
     </div>
     <div class="m-3">
@@ -17,12 +17,12 @@
             <p>Description</p>
         </div>
         <div class="col-12 d-flex justify-content-center">
-            <textarea  id="description" cols="30" rows="10"></textarea>
+            <textarea  id="description" cols="30" rows="10"><%= data.problem.description %></textarea>
         </div>
     </div>
     <div class="m-3">
         <div class="col-12 d-flex justify-content-center">
-            <input type="button" id="login_button" onclick="send_new_problem(this)" value="Submit">
+            <input type="button" id="login_button" onclick="edit_problem(this)" value="Submit">
         </div>
     </div>
 </div>

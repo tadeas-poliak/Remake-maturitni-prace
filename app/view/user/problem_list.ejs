@@ -1,4 +1,32 @@
 <%- include("../common/head.ejs") -%>
-<%- include("../user_common/user_header.ejs") -%>
-<h2>fsfsd</h2>
-<%- include("../common/foot.ejs") -%>
+    <%- include("../user_common/user_header.ejs") -%>
+        <div class="col-12 d-flex justify-content-center problem_list">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th colspan="2">Action</th>
+                </tr>
+                <% for(p in data.user_problems){ %>
+                    <tr>
+                        <td>
+                            <%= data.user_problems[p].id %>
+                        </td>
+                        <td>
+                            <%= data.user_problems[p].title %>
+                        </td>
+                        <td>
+                            <%= data.user_problems[p].description %>
+                        </td>
+                        <td>
+                            <input type="button" onclick="window.location.replace('/problem/edit/<%= data.user_problems[p].id %>')" value="Edit">
+                        </td>
+                        <td>
+                            <input type="button" value="Delete">
+                        </td>
+                    </tr>
+                    <% } %>
+            </table>
+        </div>
+        <%- include("../common/foot.ejs") -%>

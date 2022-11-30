@@ -77,32 +77,7 @@ async function send_form_data(button,path,redirect = "")
 }
 
 
-async function send_new_problem()
-{
-    let container = button.closest(".form-container")
-    let title = container.querySelector("#title").value
-    let description = container.querySelector("#description").value
-    if(title == "" || description == "")
-    {
-        log_message("All inputs must be filled.")
-        return
-    }
-    //Getting answer from controller (true or false) 
-    let answer = await (await fetch("/addProblem",
-        {
-            method:"POST",
-            headers:{'Content-type': "application/json"},
-            body:JSON.stringify({
-                title,
 
-            })
-        }
-        )).json(); 
-    if(answer == true)
-        log_message("Problem posted succesfully.")
-    else
-        log_message("Problem was NOT posted.")
-}
 
 
 //custom alert

@@ -30,6 +30,12 @@ header a:hover
     transform: scale(1.1);
 }
 
+input[type="button"]
+{
+    background-color: transparent;
+    border-color: transparent;
+}
+
 
 #log
 {
