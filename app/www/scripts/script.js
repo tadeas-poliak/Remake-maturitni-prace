@@ -1,5 +1,5 @@
 //sending form data (login or register)
-async function send_form_data(button,path)
+async function send_form_data(button,path,redirect = "")
 {
     //get container of form with data to be send (container must contain class name "form-container")
     let container = button.closest(".form-container")
@@ -66,10 +66,42 @@ async function send_form_data(button,path)
 
     //Printing from fetch answer into log
     if(answer == true)
+    {
         log_message("Everything went right.")
+        if(redirect != "")
+            window.location.replace(redirect)
+    }
     if(answer == false)
         log_message("Incorrect input.")
     return answer;
+}
+
+
+async function send_new_problem()
+{
+    let container = button.closest(".form-container")
+    let title = container.querySelector("#title").value
+    let description = container.querySelector("#description").value
+    if(title == "" || description == "")
+    {
+        log_message("All inputs must be filled.")
+        return
+    }
+    //Getting answer from controller (true or false) 
+    let answer = await (await fetch("/addProblem",
+        {
+            method:"POST",
+            headers:{'Content-type': "application/json"},
+            body:JSON.stringify({
+                title,
+
+            })
+        }
+        )).json(); 
+    if(answer == true)
+        log_message("Problem posted succesfully.")
+    else
+        log_message("Problem was NOT posted.")
 }
 
 

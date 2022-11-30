@@ -10,6 +10,8 @@ const app = express();
 const router = require(path.join(__dirname,"router","router.js"));
 //user router
 const user_router = require(path.join(__dirname,"router","user_router.js")) 
+//problems router
+const problem_router = require(path.join(__dirname,"router","problem_router.js")) 
 
 //////////////////////
 
@@ -37,8 +39,9 @@ app.use(express.static(path.join(__dirname ,'www')))
 
 //Route paths
 //app.use for sub categories in URL address
-app.use("/",router);
-app.use("/user",user_router);
+app.use("/user",router);
+app.use("/problem",problem_router);
+app.use("/",user_router);
 
 
 module.exports = app;

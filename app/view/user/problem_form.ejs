@@ -1,30 +1,30 @@
-<%- include("common/head.ejs") -%>
+<%- include("../common/head.ejs") -%>
+<%- include("../user_common/user_header.ejs") -%>
 
 <div class="row col-12 d-flex justify-content-center form-container mt-5">
     <div id="log" class="hidden">  
     </div>
     <div class="m-3">
         <div class="col-12 d-flex justify-content-center">
-            <p>Name</p>
+            <p>Title</p>
         </div>
         <div class="col-12 d-flex justify-content-center">
-            <input class="name" type="text">
-        </div>
-    </div>
-    <div class="m-3">
-        <div class="col-12 d-flex justify-content-center">
-            <p>Password</p>
-        </div>
-        <div class="col-12 d-flex justify-content-center">
-            <input class="password" type="password">
+            <input id="title" type="text">
         </div>
     </div>
     <div class="m-3">
         <div class="col-12 d-flex justify-content-center">
-            <input type="button" id="login_button" onclick="send_form_data(this,'/user/login','/')" value="Submit">
+            <p>Description</p>
+        </div>
+        <div class="col-12 d-flex justify-content-center">
+            <textarea  id="description" cols="30" rows="10"></textarea>
+        </div>
+    </div>
+    <div class="m-3">
+        <div class="col-12 d-flex justify-content-center">
+            <input type="button" id="login_button" onclick="send_new_problem(this)" value="Submit">
         </div>
     </div>
 </div>
 <script src="/scripts/script.js"></script>
-
-    <%- include("common/foot.ejs") -%>
+<%- include("../common/foot.ejs") -%>

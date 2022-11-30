@@ -1,46 +1,20 @@
 const path = require("path")
-const user_model = require(path.join(__dirname,"..","model","user_model.js"))
-
-exports.login_page = (req,res) =>
+const user_model = require(path.join(__dirname,"..","model","user_model"))
+exports.home = (req,res) =>
 {
-    res.render("login")
+    let name = Object.values(req.cookies)[0]  
+    let user_id = user_model.get_user_id_by_name(name)
+   res.render("user/home",{data:{user_id}})
 }
 
 
-exports.register_page = (req,res) =>
+exports.new_problem = (req,res) =>
 {
-    res.render("register")
+    res.render("user/problem_form")
 }
 
-//middleware
-exports.is_logged_in = (req,res,next) =>
-{
-    let name = Object.values(req.cookies)[0]    
-    let password = Object.values(req.cookies)[1]    
-    if(name != undefined && password != undefined)
-        //Checking if user is logged in
-        if(user_model.is_user_in_database(name,password) == true)
-            next();//if so we pass to next controller
-    
-    res.redirect("/user/loginPage")
-}
 //actions
-exports.login = (req,res) =>
+exports.add_problem = (req,res) =>
 {
-    
-    let answer = user_model.is_user_in_database(req.body.name,req.body.password)
-    req.session.test = "test"
-    if(answer)
-    {
-        //5 minutes expiration
-        let expiration = 5*60*1000
-        res.cookie("name",req.body.name,{maxAge:5000})
-        res.cookie("password",req.body.password,{maxAge:5000})
-    }
-    res.send({answer})
-}
-
-exports.register = (req,res) =>
-{
-    res.send({answer:user_model.add_user(req.body.name,req.body.password)})
+    res.send({answer:true})
 }

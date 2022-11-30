@@ -1,14 +1,16 @@
-const express = require("express");
-const path = require("path") 
-const controller = require(path.join(__dirname,"..","controller","controller"));
-const user_controller = require(path.join(__dirname,"..","controller","user_controller"));
-const router = express.Router();
+const express = require("express"); 
+const controller = require(__dirname+"/../controller/controller");
+
+const user_router = express.Router();
+
+//login page
+user_router.get("/loginPage",controller.login_page)
+user_router.get("/registerPage",controller.register_page)
 
 
-//Pages that need to have user logged in  
-//main page with all posted problems
+//actions
+user_router.post("/login",controller.login)
+user_router.post("/register",controller.register)
 
-router.get("/",user_controller.is_logged_in,controller.home)
 
-
-module.exports = router;
+module.exports = user_router;
