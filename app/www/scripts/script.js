@@ -79,11 +79,11 @@ async function send_form_data(button,path,redirect = "")
 
 
 
-
 //custom alert
 function log_message(messege,duration=3000)
 {
     let log_element = document.querySelector("div#log");
+    console.log(window.scrollY)
     log_element.classList.remove("hidden")
     log_element.innerHTML = messege;
     log_element.style.position.left = "50%+"+log_element.offsetWidth/2+"px" 

@@ -32,7 +32,12 @@ exports.list = (req,res) =>
 //actions
 exports.add = (req,res) =>
 {
-
+    let name = Object.values(req.cookies)[0] 
+    let user_id = user_model.get_user_id_by_name(name)
+    if(req.body.title == "" ||req.body.description == "")
+        res.send({answer:false})
+    else
+        res.send({answer:problem_model.add_problem(user_id,req.body.title,req.body.description)})
 }
 
 exports.change = (req,res) =>

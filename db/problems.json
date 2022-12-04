@@ -2,8 +2,14 @@
     "1": {
         "user_id": 1,
         "title": "Title",
-        "description": "Some descriptionn",
+        "description": "Some descriptionnn",
         "id": "1"
     },
-    "next_id": 2
+    "2": {
+        "user_id": "1",
+        "title": "Test",
+        "description": "Desc",
+        "vote_rate": 0
+    },
+    "next_id": 3
 }

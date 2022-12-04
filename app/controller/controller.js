@@ -21,11 +21,7 @@ exports.is_logged_in = (req,res,next) =>
     {
         //Checking if user is logged in
         if(user_model.is_user_in_database(name,password) == true)
-        {
-            console.log("yo")
             next();//if so we pass to next controller
-    
-        }
     }
     res.redirect("/user/loginPage")
 }
